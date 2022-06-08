@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ShopList</string>
+    <string name="Shopp_App">ShopApp</string>
+    <string name="Cygan">Gipsy King baazar</string>
+    <string name="UserName">UserName</string>
+    <string name="Password">Password</string>
+    <string name="LogIn">LogIn</string>
+    <string name="Register">Register</string>
+</resources>
