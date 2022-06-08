@@ -8,8 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +32,34 @@ public class MainActivity extends AppCompatActivity {
         listView_Products.setAdapter(PoductAdapter);
 
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "http://dev.imagit.pl/wsg_zaliczenie/api/login/"+userId;
+        String url = "https://dev.imagit.pl/wsg_zaliczenie/api/items/"+userId;
+
+        client.get(url, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String json = new String(responseBody);
+                try {
+                    JSONArray jArray = new JSONArray(json);
+                    for(int i =0; i<jArray.length(); i++){
+                        JSONObject jObject = jArray.getJSONObject(i);
+                        String productName = jObject.getString("ITEM_NAME");
+                        String itemDescription =jObject.getString("ITEM_DESCRIPTION");
+
+                        ProductList.add(productName + ", " + itemDescription);
+                    }
+                    listView_Products.setAdapter(PoductAdapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+            }
+        });
 
 
     }
