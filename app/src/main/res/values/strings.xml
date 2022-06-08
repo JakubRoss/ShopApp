@@ -6,6 +6,8 @@
     <string name="Password">Password</string>
     <string name="LogIn">LogIn</string>
     <string name="Register">Register</string>
-    <string name="Empty">Empty or invalid user name or password</string>
+    <string name="Empty">Empty user name or password</string>
     <string name="Error">Error!</string>
+    <string name="Invalid">Invalid name or password</string>
+    <string name="Main">Main Activity</string>
 </resources>

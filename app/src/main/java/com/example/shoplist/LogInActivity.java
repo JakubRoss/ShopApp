@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import cz.msebera.android.httpclient.Header;
 
 public class LogInActivity extends AppCompatActivity {
 
@@ -20,6 +26,7 @@ public class LogInActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.editText_Password);
         TextView register = findViewById(R.id.textView_register);
         Button login = findViewById(R.id.button_logIn);
+        AsyncHttpClient client = new AsyncHttpClient();
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +54,27 @@ public class LogInActivity extends AppCompatActivity {
                     dialog.show();
                 }
                 else {
+                    String url = "http://dev.imagit.pl/wsg_zaliczenie/api/login/"+login+"/"+name;
+                    client.get(url, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                            String response = new String(responseBody);
+                            if(android.text.TextUtils.isDigitsOnly(response)){
+                                Intent intent = new Intent(LogInActivity.this,MainActivity.class);
+                                startActivity(intent);
+
+                            }
+                            else {
+                                Toast.makeText(LogInActivity.this, R.string.Invalid, Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
 
                 }
 
