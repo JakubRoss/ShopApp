@@ -1,7 +1,9 @@
 package com.example.shoplist;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +29,7 @@ public class LogInActivity extends AppCompatActivity {
         TextView register = findViewById(R.id.textView_register);
         Button login = findViewById(R.id.button_logIn);
         AsyncHttpClient client = new AsyncHttpClient();
+        SharedPreferences preferences = getSharedPreferences("userPreferences", Activity.MODE_PRIVATE);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +47,7 @@ public class LogInActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(LogInActivity.this);
                     builder.setTitle(R.string.Error)
                             .setMessage(R.string.Empty)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("OK",new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
@@ -60,6 +63,10 @@ public class LogInActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             String response = new String(responseBody);
                             if(android.text.TextUtils.isDigitsOnly(response)){
+                                SharedPreferences.Editor preferencesEditor = preferences.edit();
+                                preferencesEditor.putString("userId",response);
+                                preferencesEditor.commit();
+
                                 Intent intent = new Intent(LogInActivity.this,MainActivity.class);
                                 startActivity(intent);
 
