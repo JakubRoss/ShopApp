@@ -14,4 +14,8 @@
     <string name="UsernameAlreadyExists">Username Already Exists</string>
     <string name="Submit">Submit</string>
     <string name="email">Email</string>
+    <string name="itemlist">Item List</string>
+    <string name="AddItem">Add Item</string>
+    <string name="DeleteItem">Delete Item</string>
+
 </resources>

@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout-v31/activity_log_in.xml" value="0.3625" />
-        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_log_in.xml" value="0.3625" />
-        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_item_list.xml" value="0.22239583333333332" />
+        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_log_in.xml" value="0.33" />
+        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_product_list.xml" value="0.22239583333333332" />
+        <entry key="..\:/REPOS/ShopApp/app/src/main/res/layout/activity_register.xml" value="0.25" />
       </map>
     </option>
   </component>
