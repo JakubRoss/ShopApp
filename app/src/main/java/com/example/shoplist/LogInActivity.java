@@ -20,6 +20,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class LogInActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,9 @@ public class LogInActivity extends AppCompatActivity {
         TextView register = findViewById(R.id.textView_register);
         Button login = findViewById(R.id.button_logIn);
         AsyncHttpClient client = new AsyncHttpClient();
-        SharedPreferences preferences = getSharedPreferences("userPreferences", Activity.MODE_PRIVATE);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        String s1 = sharedPreferences.getString("userid", "");
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,9 +67,11 @@ public class LogInActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             String response = new String(responseBody);
                             if(android.text.TextUtils.isDigitsOnly(response)){
-                                SharedPreferences.Editor preferencesEditor = preferences.edit();
-                                preferencesEditor.putString("userId",response);
-                                preferencesEditor.commit();
+
+
+                                SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                myEdit.putString("userid",response);
+                                myEdit.commit();
 
                                 Intent intent = new Intent(LogInActivity.this,MainActivity.class);
                                 startActivity(intent);

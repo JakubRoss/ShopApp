@@ -24,15 +24,18 @@ public class ItemListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
+
         ListView listView_Products = findViewById(R.id.listView_Products);
-        SharedPreferences prefernces = getSharedPreferences("userPrefernces", Activity.MODE_PRIVATE);
-        String userId = prefernces.getString("userId","0");
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        String s1 = sharedPreferences.getString("userid", "");
+
         ArrayList<String> ProductList = new ArrayList<String>();
         ArrayAdapter<String> PoductAdapter = new ArrayAdapter<String>(ItemListActivity.this, android.R.layout.simple_list_item_1,ProductList);
         listView_Products.setAdapter(PoductAdapter);
 
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "https://dev.imagit.pl/wsg_zaliczenie/api/items/"+userId;
+        String url = "https://dev.imagit.pl/wsg_zaliczenie/api/items/"+s1;
 
         client.get(url, new AsyncHttpResponseHandler() {
             @Override

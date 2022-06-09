@@ -17,5 +17,8 @@
     <string name="itemlist">Item List</string>
     <string name="AddItem">Add Item</string>
     <string name="DeleteItem">Delete Item</string>
+    <string name="ProductName">Product name</string>
+    <string name="Description">Description</string>
+    <string name="ItemAddedSuccessfully">Item Added Successfully</string>
 
 </resources>
