@@ -22,9 +22,6 @@
             android:name=".AddItemActivity"
             android:exported="false" />
         <activity
-            android:name=".ItemListActivity"
-            android:exported="false" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

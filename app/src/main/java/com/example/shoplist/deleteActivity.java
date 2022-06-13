@@ -1,6 +1,7 @@
 package com.example.shoplist;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -93,7 +94,11 @@ public class deleteActivity extends AppCompatActivity {
                                         String odp = new String(responseBody);
                                         String odp2 = "OK";
                                         if(odp2.equals(odp)){
+                                            Intent intent = new Intent(deleteActivity.this,MainActivity.class);
+                                            startActivity(intent);
                                             Toast.makeText(deleteActivity.this, R.string.ItemDeletedSuccessfully, Toast.LENGTH_LONG).show();
+                                            Intent intent2 = new Intent(deleteActivity.this,deleteActivity.class);
+                                            startActivity(intent2);
                                         }
                                         else
                                             Toast.makeText(deleteActivity.this, R.string.Error, Toast.LENGTH_LONG).show();
@@ -107,8 +112,6 @@ public class deleteActivity extends AppCompatActivity {
                         });
                 AlertDialog dialog = builder.create();
                 dialog.show();
-
-
                 return false;
             }
         });
