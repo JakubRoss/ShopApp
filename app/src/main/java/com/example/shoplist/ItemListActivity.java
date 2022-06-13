@@ -1,15 +1,13 @@
 package com.example.shoplist;
 
-import android.app.Activity;
+
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,8 +45,9 @@ public class ItemListActivity extends AppCompatActivity {
                         JSONObject jObject = jArray.getJSONObject(i);
                         String productName = jObject.getString("ITEM_NAME");
                         String itemDescription =jObject.getString("ITEM_DESCRIPTION");
+                        String itemid =jObject.getString("ITEM_ID");
 
-                        ProductList.add(productName + ", " + itemDescription);
+                        ProductList.add(productName + " |" + itemDescription + " | "+itemid);
                     }
                     listView_Products.setAdapter(PoductAdapter);
 

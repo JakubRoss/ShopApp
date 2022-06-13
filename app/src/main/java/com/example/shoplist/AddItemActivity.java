@@ -26,13 +26,10 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        //SharedPreferences preferences = getSharedPreferences("userPrefernces", Activity.MODE_PRIVATE);
-        //String userId = preferences.getString("userId","0");
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
         String s1 = sharedPreferences.getString("userid", "");
         EditText name = findViewById(R.id.editText_AddProductName);
         EditText dsc = findViewById(R.id.editText_AddDescription);
-        //EditText login = findViewById(R.id.editText_UserAddItem);
         Button submit = findViewById(R.id.button_AddSubmit);
 
         AsyncHttpClient client = new AsyncHttpClient();
@@ -43,9 +40,8 @@ public class AddItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String productname = name.getText().toString();
                 String description = dsc.getText().toString();
-                //String username = login.getText().toString();
 
-                if(/*username.isEmpty() ||*/ productname.isEmpty()||description.isEmpty()){
+                if( productname.isEmpty()||description.isEmpty()){
                     AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
                     builder.setTitle(R.string.Error)
                             .setMessage(R.string.Empty)

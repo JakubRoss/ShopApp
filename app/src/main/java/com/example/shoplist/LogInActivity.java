@@ -1,6 +1,5 @@
 package com.example.shoplist;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,7 +32,6 @@ public class LogInActivity extends AppCompatActivity {
         AsyncHttpClient client = new AsyncHttpClient();
 
         SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-        String s1 = sharedPreferences.getString("userid", "");
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +69,7 @@ public class LogInActivity extends AppCompatActivity {
 
                                 SharedPreferences.Editor myEdit = sharedPreferences.edit();
                                 myEdit.putString("userid",response);
-                                myEdit.commit();
+                                myEdit.apply();
 
                                 Intent intent = new Intent(LogInActivity.this,MainActivity.class);
                                 startActivity(intent);

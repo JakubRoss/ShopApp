@@ -18,10 +18,6 @@ public class MainActivity extends AppCompatActivity {
         Button itemlist = findViewById(R.id.button_ListItem);
         Button additem = findViewById(R.id.button_additem);
         Button deleteitem = findViewById(R.id.button_deleteitem);
-        Button check = findViewById(R.id.button_check);
-
-        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-        String s1 = sharedPreferences.getString("userid", "");
 
         itemlist.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,14 +36,8 @@ public class MainActivity extends AppCompatActivity {
         deleteitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ItemListActivity.class);
+                Intent intent = new Intent(MainActivity.this,deleteActivity.class);
                 startActivity(intent);
-            }
-        });
-        check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,s1,Toast.LENGTH_LONG).show();
             }
         });
     }

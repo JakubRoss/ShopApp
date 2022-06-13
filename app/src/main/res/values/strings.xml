@@ -20,5 +20,7 @@
     <string name="ProductName">Product name</string>
     <string name="Description">Description</string>
     <string name="ItemAddedSuccessfully">Item Added Successfully</string>
-
+    <string name="ItemDeletedSuccessfully">Item Deleted Successfully</string>
+    <string name="sure">Delete item</string>
+    <string name="press">Press ok to confirm</string>
 </resources>
