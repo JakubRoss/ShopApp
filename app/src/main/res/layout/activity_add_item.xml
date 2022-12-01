@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".AddItemActivity">
 
     <Button
-        android:id="@+id/button_RegisterSubmit"
+        android:id="@+id/button_AddSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -18,57 +18,45 @@
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_RegisterEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editText_AddDescription"
         tools:targetApi="s" />
 
     <EditText
-        android:id="@+id/editText_RegisterLogin"
+        android:id="@+id/editText_AddProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/ProductName"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cygan4"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/editText_AddDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/UserName"
-        android:inputType="textEmailAddress"
+        android:hint="@string/Description"
+        android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cygan2"
+        app:layout_constraintTop_toBottomOf="@+id/editText_AddProductName"
         tools:ignore="TextContrastCheck" />
 
-    <EditText
-        android:id="@+id/editText_RegisterPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_RegisterLogin"
-        tools:ignore="TextContrastCheck"
-        android:autofillHints="" />
-
-    <EditText
-        android:id="@+id/editText_RegisterEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_RegisterPassword"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:autofillHints="" />
-
     <TextView
-        android:id="@+id/textView_ShopApp2"
+        android:id="@+id/textView_ShopApp4"
         android:layout_width="269dp"
         android:layout_height="86dp"
         android:layout_marginTop="50dp"
@@ -82,7 +70,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView_cygan2"
+        android:id="@+id/textView_cygan4"
         android:layout_width="234dp"
         android:layout_height="33dp"
         android:layout_marginTop="25dp"
@@ -93,5 +81,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_ShopApp2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_ShopApp4" />
+
 </android.support.constraint.ConstraintLayout>

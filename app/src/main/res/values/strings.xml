@@ -1,9 +1,26 @@
 <resources>
-    <string name="app_name">ShopList</string>
+    <string name="app_name">ShopApp</string>
     <string name="Shopp_App">ShopApp</string>
-    <string name="Cygan">Gipsy King baazar</string>
+    <string name="Cygan">Gipsy King bazaar</string>
     <string name="UserName">UserName</string>
     <string name="Password">Password</string>
     <string name="LogIn">LogIn</string>
     <string name="Register">Register</string>
+    <string name="Empty">Fill in the blank fields!</string>
+    <string name="Error">Error!</string>
+    <string name="Invalid">Invalid name or password</string>
+    <string name="Main">Main Activity</string>
+    <string name="UserRegisteredSuccessfully">User Registered Successfully!</string>
+    <string name="UsernameAlreadyExists">Username Already Exists</string>
+    <string name="Submit">Submit</string>
+    <string name="email">Email</string>
+    <string name="itemlist">Item List</string>
+    <string name="AddItem">Add Item</string>
+    <string name="DeleteItem">Delete Item</string>
+    <string name="ProductName">Product name</string>
+    <string name="Description">Description</string>
+    <string name="ItemAddedSuccessfully">Item Added Successfully</string>
+    <string name="ItemDeletedSuccessfully">Item Deleted Successfully</string>
+    <string name="sure">Delete item</string>
+    <string name="press">Press ok to confirm</string>
 </resources>

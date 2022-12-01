@@ -2,6 +2,7 @@ package com.example.shoplist;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,29 +17,31 @@ import com.loopj.android.http.RequestParams;
 
 import cz.msebera.android.httpclient.Header;
 
-public class RegisterActivity extends AppCompatActivity {
+public class AddItemActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_add_item);
 
-        EditText rlogin = findViewById(R.id.editText_RegisterLogin);
-        EditText rpassword = findViewById(R.id.editText_RegisterPassword);
-        EditText remail = findViewById(R.id.editText_RegisterEmail);
-        Button submit = findViewById(R.id.button_RegisterSubmit);
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        String s1 = sharedPreferences.getString("userid", "");
+        EditText name = findViewById(R.id.editText_AddProductName);
+        EditText dsc = findViewById(R.id.editText_AddDescription);
+        Button submit = findViewById(R.id.button_AddSubmit);
 
         AsyncHttpClient client = new AsyncHttpClient();
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String login = rlogin.getText().toString();
-                String password = rpassword.getText().toString();
-                String email = remail.getText().toString();
+                String productname = name.getText().toString();
+                String description = dsc.getText().toString();
 
-                if(login.isEmpty()||password.isEmpty()||email.isEmpty()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                if( productname.isEmpty()||description.isEmpty()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
                     builder.setTitle(R.string.Error)
                             .setMessage(R.string.Empty)
                             .setPositiveButton("ok", new DialogInterface.OnClickListener() {
@@ -50,23 +53,24 @@ public class RegisterActivity extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
+
                 else {
-                    String url="http://dev.imagit.pl/wsg_zaliczenie/api/register";
+                    String url="http://dev.imagit.pl/wsg_zaliczenie/api/item/add";
                     RequestParams params = new RequestParams();
-                    params.put("login", login);
-                    params.put("pass",password);
-                    params.put("email",email);
+                    params.put("user", s1);
+                    params.put("name",productname);
+                    params.put("desc",description);
                     client.post(url, params, new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             String response = new String(responseBody);
                             if (response.equals("OK")){
-                                Toast.makeText(RegisterActivity.this,R.string.UserRegisteredSuccessfully,Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterActivity.this,LogInActivity.class);
+                                Toast.makeText(AddItemActivity.this,R.string.ItemAddedSuccessfully,Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(AddItemActivity.this,MainActivity.class);
                                 startActivity(intent);
                             }
                             else{
-                                Toast.makeText(RegisterActivity.this,R.string.UsernameAlreadyExists,Toast.LENGTH_LONG).show();
+                                Toast.makeText(AddItemActivity.this,R.string.Error,Toast.LENGTH_LONG).show();
                             }
 
                         }
@@ -77,6 +81,8 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                 }
+
+
             }
         });
 

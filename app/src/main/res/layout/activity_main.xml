@@ -7,12 +7,75 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/textView_ShopApp3"
+        android:layout_width="269dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/Shopp_App"
+        android:textAlignment="center"
+        android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cygan3"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="cursive"
+        android:text="@string/Cygan"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ShopApp3" />
+
+    <Button
+        android:id="@+id/button_ListItem"
+        android:layout_width="173dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/purple_500"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/itemlist"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cygan3" />
+
+    <Button
+        android:id="@+id/button_additem"
+        android:layout_width="173dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/purple_500"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/AddItem"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_ListItem" />
+
+    <Button
+        android:id="@+id/button_deleteitem"
+        android:layout_width="173dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/purple_500"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/DeleteItem"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_additem" />
 
 </android.support.constraint.ConstraintLayout>

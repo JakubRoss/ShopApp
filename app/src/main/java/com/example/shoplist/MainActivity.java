@@ -1,7 +1,11 @@
 package com.example.shoplist;
 
+
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,5 +13,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button itemlist = findViewById(R.id.button_ListItem);
+        Button additem = findViewById(R.id.button_additem);
+        Button deleteitem = findViewById(R.id.button_deleteitem);
+
+        itemlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( MainActivity.this, deleteActivity.class);
+                startActivity(intent);
+            }
+        });
+        additem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AddItemActivity.class);
+                startActivity(intent);
+            }
+        });
+        deleteitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,deleteActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
